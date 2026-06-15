@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phantom Reaper AI - Advanced Forex trading bots. ProfitCycler v2.8 and Ultra-Fast Gold Scalper EA available now.">
+    <title>Phantom Reaper AI - Professional Trading Bots</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-section {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(26, 26, 46, 0.3) 100%);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .product-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 255, 136, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .product-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+        
+        .product-validity {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        
+        .product-features li {
+            padding: 10px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .product-features i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-whatsapp {
+            flex: 1;
+            background: #25D366;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #20BA5A;
+            transform: scale(1.05);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comparison-table th {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table .check {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <h1>PHANTOM REAPER AI</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://wa.me/256748758798" class="btn-nav">
+                <i class="fab fa-whatsapp"></i> Buy Now
+            </a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h2>Trade Like a Pro with Phantom Reaper AI</h2>
+            <p>
+                Professional-grade automated trading bots for Forex and Commodities. 
+                Advanced algorithms, smart risk management, and 24/7 automated execution.
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Explore Products</a>
+                <a href="https://wa.me/256748758798" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>1000+</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="stat">
+                <h3>$10M+</h3>
+                <p>Volume Traded</p>
+            </div>
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Trading</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Products Section -->
+<section class="product-section" id="products">
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;">Our Trading Bots</h2>
+        <p class="section-subtitle">Professional tools for serious traders</p>
+        
+        <div class="product-grid">
+            <!-- ProfitCycler v2.8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="product-content">
+                    <span class="badge">BESTSELLER</span>
+                    <h3 class="product-title">ProfitCycler v2.8</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Smart Momentum & Trend Trading EA</p>
+                    
+                    <div class="product-price">$200</div>
+                    <div class="product-validity">✓ Valid for 3 Months</div>
+                    
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Momentum & Trend Confirmation Strategy</li>
+                        <li><i class="fas fa-check"></i> M1-M15 Timeframe Optimization</li>
+                        <li><i class="fas fa-check"></i> Dynamic ATR-based Stop Loss</li>
+                        <li><i class="fas fa-check"></i> Smart Auto Lot Sizing</li>
+                        <li><i class="fas fa-check"></i> Multi-Pair Trading Support</li>
+                        <li><i class="fas fa-check"></i> Trailing Stop Logic</li>
+                        <li><i class="fas fa-check"></i> Pattern Reversal Detection</li>
+                    </ul>
+                    
+                    <div class="cta-button">
+                        <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20ProfitCycler%20v2.8%20for%20%24200" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ultra-Fast Gold Scalper EA -->
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="product-content">
+                    <span class="badge" style="background: #FFD700; color: #000;">PREMIUM</span>
+                    <h3 class="product-title">Ultra-Fast Gold Scalper</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Professional XAUUSD Scalping EA</p>
+                    
+                    <div class="product-price">$200</div>
+                    <div class="product-validity">✓ Valid for 3 Months</div>
+                    
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Lightning Fast Entries & Exits</li>
+                        <li><i class="fas fa-check"></i> Hybrid M1 + M15 Scalping</li>
+                        <li><i class="fas fa-check"></i> Automatic Scaling & Multi-Close</li>
+                        <li><i class="fas fa-check"></i> Floating ATR Stop Loss</li>
+                        <li><i class="fas fa-check"></i> Daily Loss Limit Protection</li>
+                        <li><i class="fas fa-check"></i> Gold-Optimized Algorithm</li>
+                        <li><i class="fas fa-check"></i> Backtested for Real Market</li>
+                    </ul>
+                    
+                    <div class="cta-button">
+                        <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20Ultra-Fast%20Gold%20Scalper%20for%20%24200" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Buy Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th style="text-align: center;">ProfitCycler v2.8</th>
+                    <th style="text-align: center;">Gold Scalper EA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Best For</td>
+                    <td>Multi-pair Forex Trading</td>
+                    <td>Gold (XAUUSD) Scalping</td>
+                </tr>
+                <tr>
+                    <td>Timeframes</td>
+                    <td>M1 - M15</td>
+                    <td>M1 + M15</td>
+                </tr>
+                <tr>
+                    <td>Strategy Type</td>
+                    <td>Momentum & Trend</td>
+                    <td>Scalping</td>
+                </tr>
+                <tr>
+                    <td>Stop Loss Type</td>
+                    <td><span class="check">ATR-Based ✓</span></td>
+                    <td><span class="check">Floating ATR ✓</span></td>
+                </tr>
+                <tr>
+                    <td>Auto Lot Sizing</td>
+                    <td><span class="check">Yes ✓</span></td>
+                    <td><span class="check">Yes ✓</span></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>$200 (3 months)</td>
+                    <td>$200 (3 months)</td>
+                </tr>
+                <tr>
+                    <td>Support</td>
+                    <td><span class="check">24/7 ✓</span></td>
+                    <td><span class="check">24/7 ✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+    <div class="container">
+        <h2>Why Choose Phantom Reaper AI?</h2>
+        <p class="section-subtitle">Industry-leading technology and support</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Lightning Fast</h3>
+                <p>Millisecond-precision order execution with advanced algorithms designed for speed and accuracy.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Smart Risk Management</h3>
+                <p>Intelligent position sizing, drawdown protection, and daily loss limits keep your capital safe.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>100% Automated</h3>
+                <p>Set and forget. Trade 24/7 without emotions or manual intervention required.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Proven Performance</h3>
+                <p>Backtested on real market conditions with consistent results across multiple timeframes.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Expert Support</h3>
+                <p>WhatsApp support available 24/7. Direct access to the development team for assistance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>Fully Customizable</h3>
+                <p>Adjust parameters to match your trading style, risk tolerance, and market conditions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <h2>Getting Started in 3 Easy Steps</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Contact Us</h3>
+                <p>Message us on WhatsApp or email to discuss your needs</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Purchase & Setup</h3>
+                <p>Complete payment and receive the bot with installation guide</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Start Trading</h3>
+                <p>Install on MT4/MT5 and start automated trading immediately</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2>Simple, Affordable Pricing</h2>
+        <p class="section-subtitle">Professional trading bots at accessible prices</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Single Bot</h3>
+                <div class="price">$200<span>/3 months</span></div>
+                <p class="price-desc">One trading bot license</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Full access to 1 bot</li>
+                    <li><i class="fas fa-check"></i> 3 months validity</li>
+                    <li><i class="fas fa-check"></i> WhatsApp support</li>
+                    <li><i class="fas fa-check"></i> Setup assistance</li>
+                    <li><i class="fas fa-times"></i> Renewal discount</li>
+                </ul>
+                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20a%20single%20bot%20license%20for%20%24200" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="badge">BEST VALUE</div>
+                <h3>Both Bots Bundle</h3>
+                <div class="price">$350<span>/3 months</span></div>
+                <p class="price-desc">Save $50 - Get both bots</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Both bots access</li>
+                    <li><i class="fas fa-check"></i> 3 months validity</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                    <li><i class="fas fa-check"></i> Advanced setup</li>
+                    <li><i class="fas fa-check"></i> Renewal discount 20%</li>
+                </ul>
+                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20the%20Both%20Bots%20Bundle%20for%20%24350" class="btn btn-primary">Best Deal</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Renewal (3 Mo)</h3>
+                <div class="price">$160<span>/3 months</span></div>
+                <p class="price-desc">Renew existing license</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> 20% discount</li>
+                    <li><i class="fas fa-check"></i> Extend 3 months</li>
+                    <li><i class="fas fa-check"></i> No reinstall needed</li>
+                    <li><i class="fas fa-check"></i> Support included</li>
+                    <li><i class="fas fa-check"></i> Updates included</li>
+                </ul>
+                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20renew%20my%20license%20for%20%24160" class="btn btn-primary">Renew</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-content">
+            <div class="faq-item">
+                <h3>What brokers are compatible?</h3>
+                <p>Our bots work with any MT4/MT5 broker. Popular choices: FXOpen, Exness, IC Markets, HotForex, and many others. We provide setup help for your broker.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What's the minimum starting capital?</h3>
+                <p>We recommend starting with at least $200-$500 minimum. Most brokers allow this. The bot will auto-size positions based on your account and risk settings.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I run both bots simultaneously?</h3>
+                <p>Yes! You can run both on the same account on different currency pairs or timeframes, or deploy them to separate accounts.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What if I have technical issues?</h3>
+                <p>Contact us on WhatsApp! Our team provides 24/7 support including installation help, troubleshooting, and parameter optimization.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Are past results guaranteed?</h3>
+                <p>No. Past performance doesn't guarantee future results. All trading involves risk. Our bots are designed to manage risk, but profits are never guaranteed.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What happens after 3 months?</h3>
+                <p>Your license expires. You can renew for $160 (20% discount) to continue trading. Or purchase a new license. Data and settings are preserved.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I get a refund?</h3>
+                <p>We offer a 7-day trial period. If you're not satisfied within 7 days, we provide a full refund. After 7 days, no refunds due to license delivery.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do I need coding knowledge?</h3>
+                <p>No! The bots are ready to use. We provide step-by-step installation guides and our support team can assist with setup.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Transform Your Trading?</h2>
+        <p>Join hundreds of traders using Phantom Reaper AI bots. Start automated trading today.</p>
+        <a href="https://wa.me/256748758798" class="btn btn-primary btn-large">
+            <i class="fab fa-whatsapp"></i> Contact Us on WhatsApp
+        </a>
+        <p style="margin-top: 20px; color: var(--text-muted); font-size: 0.9rem;">
+            💬 WhatsApp: +256 748 758 798 | 24/7 Support Available
+        </p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Phantom Reaper AI</h4>
+                <p>Professional automated trading bots for Forex and Commodities</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/disclaimer.html">Disclaimer</a></li>
+                    <li><a href="pages/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="https://wa.me/256748758798"><i class="fab fa-whatsapp"></i> WhatsApp Support</a></li>
+                    <li><a href="mailto:support@phantomreaperai.com">Email Support</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><strong>WhatsApp:</strong> +256 748 758 798</p>
+                <p><strong>Email:</strong> support@phantomreaperai.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Phantom Reaper AI. All Rights Reserved.</p>
+            <p class="disclaimer">⚠️ Trading involves substantial risk of loss. Past performance does not guarantee future results.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
