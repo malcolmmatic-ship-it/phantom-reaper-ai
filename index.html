@@ -153,6 +153,23 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text {
+            z-index: 2;
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
         }
 
         .badge {
@@ -262,6 +279,104 @@
             box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
         }
 
+        /* Hero Visual - Bot Animation */
+        .bot-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .bot-body {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bot-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .bot-icon {
+            font-size: 80px;
+            color: var(--primary);
+            z-index: 2;
+            animation: pulse-icon 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .bot-label {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+            z-index: 2;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* Trading chart simulation */
+        .chart-preview {
+            position: absolute;
+            width: 250px;
+            height: 150px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            bottom: -80px;
+            right: -50px;
+            padding: 15px;
+            opacity: 0.7;
+            transform: rotate(15deg);
+        }
+
+        .chart-line {
+            width: 100%;
+            height: 60%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'%3E%3Cpolyline points='0,80 30,60 60,70 90,40 120,50 150,30 180,45 210,20 240,35 270,15 300,25' stroke='%2300d4ff' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat center;
+            background-size: cover;
+            margin-bottom: 10px;
+        }
+
+        .chart-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
         /* ===== STATS SECTION ===== */
         .stats {
             background: rgba(0, 212, 255, 0.05);
@@ -285,6 +400,64 @@
         .stat-item p {
             color: var(--muted);
             font-size: 0.95rem;
+        }
+
+        /* ===== FEATURES SHOWCASE ===== */
+        .features-showcase {
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(0, 212, 255, 0.02) 0%, transparent 100%);
+        }
+
+        .features-showcase h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .features-showcase h2 .highlight {
+            background: linear-gradient(135deg, var(--primary), #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            background: rgba(15, 26, 46, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .feature-num {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: var(--muted);
+            line-height: 1.7;
         }
 
         /* ===== PRICING SECTION ===== */
@@ -432,61 +605,71 @@
             margin-top: 25px;
         }
 
-        /* ===== FEATURES SECTION ===== */
-        .features-section {
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-section {
             padding: 100px 0;
             background: linear-gradient(180deg, rgba(0, 212, 255, 0.02) 0%, transparent 100%);
         }
 
-        .features-section h2 {
-            font-size: 3.5rem;
+        .comparison-section h2 {
+            font-size: 3rem;
             font-weight: 800;
             margin-bottom: 60px;
             text-align: center;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: rgba(15, 26, 46, 0.6);
+        .comparison-table {
+            background: rgba(15, 26, 46, 0.8);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 40px 30px;
-            transition: var(--transition);
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 25px;
             text-align: center;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
             font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
-        .feature-card p {
+        .comparison-table td {
+            padding: 20px 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.05);
             color: var(--muted);
-            line-height: 1.7;
         }
 
-        /* ===== TESTIMONIALS SECTION ===== */
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .comparison-table .check {
+            color: var(--success);
+            font-size: 1.5rem;
+        }
+
+        .comparison-table .x {
+            color: var(--danger);
+            opacity: 0.5;
+        }
+
+        /* ===== TESTIMONIALS ===== */
         .testimonials-section {
             padding: 100px 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
         }
 
         .testimonials-section h2 {
@@ -560,6 +743,7 @@
         /* ===== HOW IT WORKS ===== */
         .how-it-works {
             padding: 100px 0;
+            background: linear-gradient(180deg, rgba(0, 212, 255, 0.02) 0%, transparent 100%);
         }
 
         .how-it-works h2 {
@@ -605,6 +789,78 @@
 
         .step-card p {
             color: var(--muted);
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(15, 26, 46, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 25px;
+        }
+
+        .faq-answer p {
+            color: var(--muted);
+            line-height: 1.8;
         }
 
         /* ===== CTA SECTION ===== */
@@ -725,6 +981,15 @@
                 padding: 60px 0 40px;
             }
 
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                min-height: 300px;
+                margin-top: 40px;
+            }
+
             .hero h2 {
                 font-size: 2.5rem;
             }
@@ -733,7 +998,7 @@
                 font-size: 2.5rem;
             }
 
-            .features-section h2 {
+            .features-showcase h2 {
                 font-size: 2.5rem;
             }
 
@@ -742,6 +1007,10 @@
             }
 
             .how-it-works h2 {
+                font-size: 2.5rem;
+            }
+
+            .faq-section h2 {
                 font-size: 2.5rem;
             }
 
@@ -781,6 +1050,26 @@
             .cta-final h2 {
                 font-size: 2rem;
             }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+
+            .bot-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .bot-body {
+                width: 240px;
+                height: 240px;
+            }
+
+            .bot-icon {
+                font-size: 60px;
+            }
         }
     </style>
 </head>
@@ -797,7 +1086,8 @@
         <ul class="nav-menu">
             <li><a href="#features">Features</a></li>
             <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#comparison">Compare</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#how">Get Started</a></li>
         </ul>
         <a href="https://wa.me/256748758798" class="btn-nav">
@@ -815,41 +1105,106 @@
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <div class="badge">
-                ✓ LIVE & ACTIVE · 24/5 TRADING
+            <div class="hero-text">
+                <div class="badge">
+                    ✓ LIVE & ACTIVE · 24/5 TRADING
+                </div>
+
+                <h2>Your AI trading system is<br><span class="cyan">already working</span></h2>
+
+                <p>Advanced automated Forex trading system with smart market analysis, intelligent risk management, and precision execution. Trade without emotion. Profit with discipline.</p>
+
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn btn-primary">
+                        View Pricing →
+                    </a>
+                    <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20know%20more%20about%20Phantom%20Reaper%20AI" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+
+                <!-- STATS -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>2</h3>
+                        <p>Professional Bots</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/5</h3>
+                        <p>Market Automation</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>AI-Powered</h3>
+                        <p>Smart Execution</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>$200-$500</h3>
+                        <p>One-Time Investment</p>
+                    </div>
+                </div>
             </div>
 
-            <h2>Your AI trading system is<br><span class="cyan">already working</span></h2>
+            <div class="hero-visual">
+                <div class="bot-container">
+                    <div class="bot-body">
+                        <div class="bot-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="bot-label">AI TRADING</div>
+                    </div>
+                    <div class="chart-preview">
+                        <div class="chart-line"></div>
+                        <div class="chart-label">
+                            <span>Now</span>
+                            <span style="color: var(--primary);">+2.4%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <p>Advanced automated Forex trading system with smart market analysis, intelligent risk management, and precision execution. Trade without emotion. Profit with discipline.</p>
+<!-- FEATURES SHOWCASE -->
+<section class="features-showcase" id="features">
+    <div class="container">
+        <h2>Why <span class="highlight">Phantom Reaper</span> Wins</h2>
 
-            <div class="cta-buttons">
-                <a href="#pricing" class="btn btn-primary">
-                    View Pricing →
-                </a>
-                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20know%20more%20about%20Phantom%20Reaper%20AI" class="btn btn-secondary">
-                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                </a>
+        <div class="features-showcase-grid">
+            <div class="feature-item">
+                <div class="feature-num">01</div>
+                <h3>AI-Powered Analysis</h3>
+                <p>Advanced machine learning analyzes market patterns and identifies high-probability entry points automatically in real-time.</p>
             </div>
 
-            <!-- STATS -->
-            <div class="stats">
-                <div class="stat-item">
-                    <h3>2</h3>
-                    <p>Professional Bots</p>
-                </div>
-                <div class="stat-item">
-                    <h3>24/5</h3>
-                    <p>Market Automation</p>
-                </div>
-                <div class="stat-item">
-                    <h3>AI-Powered</h3>
-                    <p>Smart Execution</p>
-                </div>
-                <div class="stat-item">
-                    <h3>$200-$500</h3>
-                    <p>One-Time Investment</p>
-                </div>
+            <div class="feature-item">
+                <div class="feature-num">02</div>
+                <h3>Risk Management</h3>
+                <p>Built-in stop losses, position sizing, and daily loss limits protect your capital in every single trade.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-num">03</div>
+                <h3>24/5 Automation</h3>
+                <p>Trade while you sleep. Our system executes trades around the clock without any manual intervention needed.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-num">04</div>
+                <h3>Multi-Timeframe</h3>
+                <p>Analyzes M1 to M15 timeframes simultaneously for better entry accuracy and signal confirmation.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-num">05</div>
+                <h3>Lightning Speed</h3>
+                <p>Millisecond precision execution on Forex and Gold markets. Never miss a profitable opportunity.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-num">06</div>
+                <h3>Expert Support</h3>
+                <p>Direct WhatsApp support for setup, optimization, and answers to any questions about your trading system.</p>
             </div>
         </div>
     </div>
@@ -918,89 +1273,114 @@
     </div>
 </section>
 
-<!-- FEATURES SECTION -->
-<section class="features-section" id="features">
+<!-- COMPARISON TABLE -->
+<section class="comparison-section" id="comparison">
     <div class="container">
-        <h2>Why Choose Phantom Reaper AI</h2>
+        <h2>Plans Comparison</h2>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                <h3>AI-Powered Analysis</h3>
-                <p>Advanced machine learning analyzes market patterns and identifies high-probability entry points automatically.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Risk Management</h3>
-                <p>Built-in stop losses, position sizing, and daily loss limits protect your capital in every trade.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                <h3>Lightning-Fast Execution</h3>
-                <p>Instant order placement with millisecond precision execution on Forex and Gold markets.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Multi-Timeframe Trading</h3>
-                <p>Analyzes M1 to M15 timeframes simultaneously for better entry accuracy and confirmation.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-cog"></i></div>
-                <h3>Automated 24/5</h3>
-                <p>Trade while you sleep. Our system executes trades around the clock without any manual intervention.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-headset"></i></div>
-                <h3>Expert Support</h3>
-                <p>Direct WhatsApp support for setup, optimization, and questions about your trading system.</p>
-            </div>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Feature</th>
+                        <th>Starter<br><span style="font-size: 0.8rem; font-weight: 400;">$200</span></th>
+                        <th>Pro<br><span style="font-size: 0.8rem; font-weight: 400;">$350</span></th>
+                        <th>Elite<br><span style="font-size: 0.8rem; font-weight: 400;">$500</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">AI Trading Engine</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Advanced AI Features</td>
+                        <td><span class="x">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Multi-Timeframe Analysis</td>
+                        <td><span class="x">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Risk Management System</td>
+                        <td><span class="x">Manual</span></td>
+                        <td><span class="check">Automated</span></td>
+                        <td><span class="check">Full Auto</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Support Level</td>
+                        <td style="color: var(--muted);">Email</td>
+                        <td style="color: var(--primary);">Priority WhatsApp</td>
+                        <td style="color: var(--primary);">VIP 24/7</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Account Activations</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Lifetime Updates</td>
+                        <td><span class="x">✗</span></td>
+                        <td><span class="x">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Setup Guidance</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
 
-<!-- TESTIMONIALS SECTION -->
-<section class="testimonials-section" id="testimonials">
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
     <div class="container">
-        <h2>What Traders Are Saying</h2>
+        <h2 style="margin-bottom: 60px;">Real Results From Real Traders</h2>
 
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Phantom Reaper AI changed my trading game. I'm now making consistent profits without having to stare at charts all day. The AI system is incredible!"</p>
+                <p class="testimonial-text">"Phantom Reaper AI changed my trading game. I'm now making consistent profits without having to stare at charts all day. The AI system is incredibly accurate!"</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">JK</div>
                     <div class="author-info">
                         <h4>John Kamada</h4>
-                        <p>Forex Trader</p>
+                        <p>Forex Trader, Uganda</p>
                     </div>
                 </div>
             </div>
 
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"The best investment I made for my trading. The risk management built in saved me during volatile markets. Highly recommended!"</p>
+                <p class="testimonial-text">"Best investment I've ever made for trading. The risk management saved me during the volatile markets. The support is amazing and responsive!"</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">SM</div>
                     <div class="author-info">
                         <h4>Sarah Mwangi</h4>
-                        <p>Gold Trader</p>
+                        <p>Gold Trader, Kenya</p>
                     </div>
                 </div>
             </div>
 
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Fast execution, smart signals, and zero emotions. This is how professional trading should be. The support team is amazing too!"</p>
+                <p class="testimonial-text">"Fast execution, smart signals, and zero emotions involved. This is exactly how professional trading should be. Highly recommended!"</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">MC</div>
                     <div class="author-info">
                         <h4>Marcus Chen</h4>
-                        <p>Active Trader</p>
+                        <p>Active Trader, Asia</p>
                     </div>
                 </div>
             </div>
@@ -1017,25 +1397,114 @@
             <div class="step-card">
                 <div class="step-number">1</div>
                 <h3>Chat With Us</h3>
-                <p>Message us on WhatsApp with your plan choice. We'll confirm details and pricing.</p>
+                <p>Message us on WhatsApp with your plan choice. We'll confirm pricing and availability immediately.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">2</div>
                 <h3>Secure Payment</h3>
-                <p>Send payment through a secure channel. Multiple payment methods available.</p>
+                <p>Send payment through secure channels. Multiple payment methods available and accepted.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">3</div>
                 <h3>Instant Delivery</h3>
-                <p>Receive your trading bot and setup guide immediately after payment confirmation.</p>
+                <p>Receive your trading bot and complete setup guide immediately after payment confirmation.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">4</div>
                 <h3>Start Trading</h3>
-                <p>Set up your bot and start automated trading. We provide complete setup support.</p>
+                <p>Set up your bot and start automated trading. We provide complete 24/7 support throughout setup.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-container">
+            <div class="faq-item active">
+                <div class="faq-question">
+                    <span>What is Phantom Reaper AI?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Phantom Reaper AI is an advanced automated Forex trading system that uses artificial intelligence to analyze market patterns, identify high-probability trades, and execute orders 24/5 without emotion. It's designed for traders who want consistent profits with minimal manual intervention.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I start trading?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Simply chat with us on WhatsApp, choose your plan (Starter/Pro/Elite), send payment, and we'll deliver your bot with setup instructions. The entire process takes less than 24 hours from payment to live trading.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is this risky? What about losses?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>All trading involves risk. Our system includes built-in stop losses, position sizing, daily loss limits, and risk management to protect your capital. We recommend starting with a demo account first to understand how it works before using real money.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Which markets does it trade?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Phantom Reaper AI is optimized for Forex currency pairs and Gold (XAUUSD). The system analyzes M1 to M15 timeframes and is designed to work on MetaTrader 4/5 platforms.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's the difference between plans?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Starter ($200) has basic features with manual risk control. Pro ($350) includes advanced AI, multi-timeframe analysis, and priority support. Elite ($500) has everything plus lifetime updates and VIP 24/7 support. Check our comparison table for full details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I get support after purchase?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All plans include support. Starter has email support, Pro has priority WhatsApp support, and Elite has VIP 24/7 WhatsApp support. We help with setup, optimization, and any questions you have.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I use it on multiple accounts?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Starter plan allows 1 account activation. Pro plan allows 2 accounts. Elite plan allows unlimited account activations. You can use the bot on multiple trading accounts depending on your plan.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a money-back guarantee?</span>
+                    <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="faq-answer">
+                    <p>We're confident in our system, but trading results depend on market conditions and proper setup. Contact our support team after purchase to discuss any concerns within the first 7 days.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -1045,7 +1514,7 @@
 <section class="cta-final">
     <div class="container">
         <h2>Ready to Trade Smarter?</h2>
-        <p>Join traders who are already profiting with Phantom Reaper AI</p>
+        <p>Join hundreds of traders already profiting with Phantom Reaper AI</p>
         <a href="https://wa.me/256748758798?text=I%20want%20to%20get%20started%20with%20Phantom%20Reaper%20AI" class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 45px;">
             <i class="fab fa-whatsapp"></i> Start Now on WhatsApp
         </a>
@@ -1058,36 +1527,38 @@
         <div class="footer-grid">
             <div class="footer-section">
                 <h4>Phantom Reaper AI</h4>
-                <p>Professional automated Forex trading system designed for traders who want consistent profits without emotion.</p>
+                <p>Professional automated Forex trading system designed for traders who want consistent profits without emotion. AI-powered, risk-managed, and available 24/5.</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#how">How to Start</a></li>
+                    <li><a href="#comparison">Compare Plans</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#how">Get Started</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Support</h4>
                 <ul>
-                    <li><a href="https://wa.me/256748758798"><i class="fab fa-whatsapp"></i> WhatsApp Support</a></li>
-                    <li><a href="mailto:support@phantomreaperai.com">Email: support@phantomreaperai.com</a></li>
+                    <li><a href="https://wa.me/256748758798"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a></li>
+                    <li><a href="mailto:support@phantomreaperai.com">📧 Email Support</a></li>
+                    <li><a href="https://wa.me/256748758798">Message Us</a></li>
                     <li>Available 24/7</li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Contact & Payment</h4>
                 <p><strong>WhatsApp:</strong></p>
-                <p><a href="https://wa.me/256748758798" style="color: var(--primary);">+256 748 758 798</a></p>
-                <p style="margin-top: 15px; font-size: 0.85rem;">Chat with us for pricing, setup, and support</p>
+                <p><a href="https://wa.me/256748758798" style="color: var(--primary); font-size: 1.1rem; font-weight: 600;">+256 748 758 798</a></p>
+                <p style="margin-top: 15px; font-size: 0.85rem;">💬 Chat for pricing, support & instant help</p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; 2026 Phantom Reaper AI. All Rights Reserved.</p>
-            <p style="margin-top: 10px; color: #666; font-size: 0.85rem;">⚠️ <strong>Trading Disclaimer:</strong> Trading involves substantial risk of loss. Past performance does not guarantee future results. Always trade responsibly.</p>
+            <p style="margin-top: 10px; color: #666; font-size: 0.85rem;">⚠️ <strong>Trading Disclaimer:</strong> Trading involves substantial risk of loss. Past performance does not guarantee future results. Always trade responsibly and start with capital you can afford to lose.</p>
         </div>
     </div>
 </footer>
@@ -1100,6 +1571,18 @@
 </a>
 
 <script>
+    // FAQ Toggle
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            faqItems.forEach(i => {
+                if (i !== item) i.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        });
+    });
+
     // Smooth animations on scroll
     const observerOptions = {
         threshold: 0.1,
@@ -1115,7 +1598,7 @@
         });
     }, observerOptions);
 
-    document.querySelectorAll('.feature-card, .testimonial-card, .step-card, .pricing-card').forEach(el => {
+    document.querySelectorAll('.feature-item, .testimonial-card, .step-card, .pricing-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
