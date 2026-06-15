@@ -3,171 +3,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Phantom Reaper AI - Advanced Forex trading bots. ProfitCycler v2.8 and Ultra-Fast Gold Scalper EA available now.">
+    <meta name="description" content="Phantom Reaper AI - Professional trading bots. ProfitCycler v2.8 and Ultra-Fast Gold Scalper EA. Trade smarter with AI.">
     <title>Phantom Reaper AI - Professional Trading Bots</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .product-section {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(26, 26, 46, 0.3) 100%);
-            padding: 60px 0;
-            border-top: 1px solid var(--border-color);
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #1a1a2e;
+            --dark-bg: #0a0a0a;
+            --card-bg: #0f1a2e;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #1a3a4a;
+            --success: #00ff88;
+            --warning: #ffa500;
+            --danger: #ff6b6b;
+            --gold: #FFD700;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(15, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
-        
-        .product-card {
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
+
+        .navbar .container {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .product-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(0, 255, 136, 0.15);
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+        .nav-brand {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
+            gap: 8px;
         }
-        
-        .product-content {
-            padding: 30px;
-            flex-grow: 1;
+
+        .nav-brand i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .nav-brand h1 {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-brand span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
             display: flex;
-            flex-direction: column;
-        }
-        
-        .product-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .product-price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 15px 0;
-        }
-        
-        .product-validity {
-            background: rgba(0, 255, 136, 0.1);
-            padding: 10px 15px;
-            border-radius: 5px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        
-        .product-features {
             list-style: none;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-        
-        .product-features li {
-            padding: 10px 0;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .product-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .product-features i {
-            color: var(--primary-color);
-            margin-right: 12px;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            align-items: center;
         }
-        
-        .cta-button {
-            margin-top: auto;
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-nav {
+            padding: 10px 25px;
+            background: var(--primary-color);
+            color: #000;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn-nav:hover {
+            background: #00c4e0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(15, 26, 46, 0.3) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero h2 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
             display: flex;
-            gap: 10px;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
         }
-        
-        .btn-whatsapp {
-            flex: 1;
-            background: #25D366;
-            color: white;
-            padding: 12px;
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
             border-radius: 8px;
             text-decoration: none;
-            text-align: center;
-            font-weight: bold;
+            font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 1rem;
         }
-        
-        .btn-whatsapp:hover {
-            background: #20BA5A;
-            transform: scale(1.05);
-        }
-        
-        .badge {
-            display: inline-block;
+
+        .btn-primary {
             background: var(--primary-color);
-            color: var(--dark-bg);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            color: #000;
         }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
+
+        .btn-primary:hover {
+            background: #00c4e0;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* System Status */
+        .system-status {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
             margin-top: 40px;
         }
-        
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .comparison-table th {
-            background: rgba(0, 255, 136, 0.1);
+
+        .status-label {
+            font-size: 0.85rem;
             color: var(--primary-color);
-            font-weight: bold;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .comparison-table tr:last-child td {
-            border-bottom: none;
+
+        .status-label::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 50%;
         }
-        
-        .comparison-table .check {
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .status-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .status-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .status-chart {
+            margin-top: 30px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 10px;
+            gap: 4px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: var(--primary-color);
+            border-radius: 2px;
+            animation: grow 0.8s ease-out;
+            min-height: 10%;
+        }
+
+        @keyframes grow {
+            from { height: 0; }
+        }
+
+        .markets-label {
+            font-size: 0.85rem;
             color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        /* Systems Section */
+        .systems-intro {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .systems-intro p {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .systems-intro h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        .systems-intro h2 .cyan {
+            color: var(--primary-color);
+        }
+
+        .systems-intro p.description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 30px auto;
+            line-height: 1.7;
+        }
+
+        .systems-intro .btn {
+            margin-top: 30px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        .product-card {
+            background: rgba(15, 26, 46, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .product-id {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-features i {
+            color: var(--primary-color);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .product-image {
+            text-align: center;
+            font-size: 4rem;
+            margin: 30px 0;
+            opacity: 0.8;
+        }
+
+        .product-order {
+            margin-top: 25px;
+        }
+
+        .product-order .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* How to Order */
+        .how-to-order {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .how-to-order h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .how-to-order p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .order-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: rgba(15, 26, 46, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 26, 46, 0.6);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-disclaimer {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .systems-intro h2 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -178,18 +622,17 @@
 <nav class="navbar">
     <div class="container">
         <div class="nav-brand">
-            <h1>PHANTOM REAPER AI</h1>
+            <i class="fas fa-cube"></i>
+            <h1>MOREAU <span>TRADING</span></h1>
         </div>
         <ul class="nav-menu">
-            <li><a href="#home">Home</a></li>
+            <li><a href="#systems">Our Systems</a></li>
             <li><a href="#products">Products</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="https://wa.me/256748758798" class="btn-nav">
-                <i class="fab fa-whatsapp"></i> Buy Now
-            </a></li>
+            <li><a href="#order">How to Order</a></li>
         </ul>
+        <a href="https://wa.me/256748758798" class="btn-nav">
+            <i class="fab fa-whatsapp"></i> Explore bots
+        </a>
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -199,353 +642,162 @@
 </nav>
 
 <!-- Hero Section -->
-<header class="hero" id="home">
+<section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h2>Trade Like a Pro with Phantom Reaper AI</h2>
-            <p>
-                Professional-grade automated trading bots for Forex and Commodities. 
-                Advanced algorithms, smart risk management, and 24/7 automated execution.
-            </p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">Explore Products</a>
+            <div class="status-badge">
+                SYSTEMS ONLINE · 24/5
+            </div>
+            
+            <h2>Markets move fast.<br><span class="highlight">Your system moves first.</span></h2>
+            
+            <p>Systematic trading bots engineered to execute with discipline, manage risk by design, and operate without emotion.</p>
+            
+            <div class="cta-buttons">
+                <a href="#products" class="btn btn-primary">
+                    View our systems →
+                </a>
                 <a href="https://wa.me/256748758798" class="btn btn-secondary">
-                    <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                 </a>
             </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <h3>1000+</h3>
-                <p>Active Users</p>
-            </div>
-            <div class="stat">
-                <h3>$10M+</h3>
-                <p>Volume Traded</p>
-            </div>
-            <div class="stat">
-                <h3>24/7</h3>
-                <p>Trading</p>
+
+            <!-- System Status -->
+            <div class="system-status">
+                <div class="status-label">SYSTEM STATUS</div>
+                <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 20px;">Live execution network</p>
+                
+                <div class="status-grid">
+                    <div class="status-item">
+                        <h3>2</h3>
+                        <p>Trading bots</p>
+                    </div>
+                    <div class="status-item">
+                        <h3>M1-M15</h3>
+                        <p>Timeframes</p>
+                    </div>
+                    <div class="status-item">
+                        <h3>24/5</h3>
+                        <p>Automation</p>
+                    </div>
+                </div>
+
+                <div class="status-chart">
+                    <div class="chart-bar" style="height: 30%;"></div>
+                    <div class="chart-bar" style="height: 45%;"></div>
+                    <div class="chart-bar" style="height: 60%;"></div>
+                    <div class="chart-bar" style="height: 50%;"></div>
+                    <div class="chart-bar" style="height: 70%;"></div>
+                    <div class="chart-bar" style="height: 65%;"></div>
+                    <div class="chart-bar" style="height: 80%;"></div>
+                    <div class="chart-bar" style="height: 90%;"></div>
+                </div>
+
+                <div class="markets-label">PRIMARY MARKETS: FOREX · GOLD</div>
             </div>
         </div>
     </div>
-</header>
+</section>
 
-<!-- Products Section -->
-<section class="product-section" id="products">
+<!-- Systems Section -->
+<section class="systems-intro" id="systems">
     <div class="container">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;">Our Trading Bots</h2>
-        <p class="section-subtitle">Professional tools for serious traders</p>
-        
-        <div class="product-grid">
+        <p>OUR SYSTEMS</p>
+        <h2>Built for different<br><span class="cyan">trading styles</span></h2>
+        <p class="description">Professional-grade trading automation optimized for multiple asset classes. Choose your specialization and start trading like a pro.</p>
+    </div>
+</section>
+
+<!-- Products -->
+<section id="products">
+    <div class="container">
+        <div class="products-grid">
             <!-- ProfitCycler v2.8 -->
             <div class="product-card">
-                <div class="product-image">
-                    <i class="fas fa-robot"></i>
+                <div class="product-header">
+                    <div class="product-id">NT-01 / FOREX</div>
+                    <div class="product-price">Ask for price</div>
                 </div>
-                <div class="product-content">
-                    <span class="badge">BESTSELLER</span>
-                    <h3 class="product-title">ProfitCycler v2.8</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 15px;">Smart Momentum & Trend Trading EA</p>
-                    
-                    <div class="product-price">$200</div>
-                    <div class="product-validity">✓ Valid for 3 Months</div>
-                    
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> Momentum & Trend Confirmation Strategy</li>
-                        <li><i class="fas fa-check"></i> M1-M15 Timeframe Optimization</li>
-                        <li><i class="fas fa-check"></i> Dynamic ATR-based Stop Loss</li>
-                        <li><i class="fas fa-check"></i> Smart Auto Lot Sizing</li>
-                        <li><i class="fas fa-check"></i> Multi-Pair Trading Support</li>
-                        <li><i class="fas fa-check"></i> Trailing Stop Logic</li>
-                        <li><i class="fas fa-check"></i> Pattern Reversal Detection</li>
-                    </ul>
-                    
-                    <div class="cta-button">
-                        <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20ProfitCycler%20v2.8%20for%20%24200" class="btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Buy Now
-                        </a>
-                    </div>
+                
+                <h3 class="product-title">ProfitCycler v2.8</h3>
+                <p class="product-subtitle">Smart EA for M1-M15 timeframes</p>
+                
+                <ul class="product-features">
+                    <li><i class="fas fa-check-circle"></i> Momentum and EMA trend confirmation</li>
+                    <li><i class="fas fa-check-circle"></i> ATR or fixed stop loss</li>
+                    <li><i class="fas fa-check-circle"></i> Auto lot sizing and trailing stop</li>
+                    <li><i class="fas fa-check-circle"></i> Runs on multiple currency pairs</li>
+                </ul>
+                
+                <div class="product-order">
+                    <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20ProfitCycler%20v2.8" class="btn btn-primary">
+                        Order on WhatsApp →
+                    </a>
                 </div>
             </div>
 
-            <!-- Ultra-Fast Gold Scalper EA -->
+            <!-- Gold Scalper -->
             <div class="product-card">
-                <div class="product-image">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <div class="product-content">
-                    <span class="badge" style="background: #FFD700; color: #000;">PREMIUM</span>
-                    <h3 class="product-title">Ultra-Fast Gold Scalper</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 15px;">Professional XAUUSD Scalping EA</p>
-                    
+                <div class="product-header">
+                    <div class="product-id">NT-02 / GOLD · XAUUSD</div>
                     <div class="product-price">$200</div>
-                    <div class="product-validity">✓ Valid for 3 Months</div>
-                    
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> Lightning Fast Entries & Exits</li>
-                        <li><i class="fas fa-check"></i> Hybrid M1 + M15 Scalping</li>
-                        <li><i class="fas fa-check"></i> Automatic Scaling & Multi-Close</li>
-                        <li><i class="fas fa-check"></i> Floating ATR Stop Loss</li>
-                        <li><i class="fas fa-check"></i> Daily Loss Limit Protection</li>
-                        <li><i class="fas fa-check"></i> Gold-Optimized Algorithm</li>
-                        <li><i class="fas fa-check"></i> Backtested for Real Market</li>
-                    </ul>
-                    
-                    <div class="cta-button">
-                        <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20Ultra-Fast%20Gold%20Scalper%20for%20%24200" class="btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Buy Now
-                        </a>
-                    </div>
+                </div>
+                
+                <h3 class="product-title">Phantom Reaper AI</h3>
+                <p class="product-subtitle">Ultra-fast automated gold scalper</p>
+                
+                <div class="product-image">🤖</div>
+                
+                <ul class="product-features">
+                    <li><i class="fas fa-check-circle"></i> Hybrid M1 + M15 scalping strategy</li>
+                    <li><i class="fas fa-check-circle"></i> Automatic scaling and multi-close</li>
+                    <li><i class="fas fa-check-circle"></i> Floating ATR stop loss and trailing</li>
+                    <li><i class="fas fa-check-circle"></i> Daily loss limit protection</li>
+                </ul>
+                
+                <div class="product-order">
+                    <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20Phantom%20Reaper%20AI%20for%20%24200" class="btn btn-primary">
+                        Order on WhatsApp →
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- Comparison Table -->
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th style="text-align: center;">ProfitCycler v2.8</th>
-                    <th style="text-align: center;">Gold Scalper EA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Best For</td>
-                    <td>Multi-pair Forex Trading</td>
-                    <td>Gold (XAUUSD) Scalping</td>
-                </tr>
-                <tr>
-                    <td>Timeframes</td>
-                    <td>M1 - M15</td>
-                    <td>M1 + M15</td>
-                </tr>
-                <tr>
-                    <td>Strategy Type</td>
-                    <td>Momentum & Trend</td>
-                    <td>Scalping</td>
-                </tr>
-                <tr>
-                    <td>Stop Loss Type</td>
-                    <td><span class="check">ATR-Based ✓</span></td>
-                    <td><span class="check">Floating ATR ✓</span></td>
-                </tr>
-                <tr>
-                    <td>Auto Lot Sizing</td>
-                    <td><span class="check">Yes ✓</span></td>
-                    <td><span class="check">Yes ✓</span></td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td>$200 (3 months)</td>
-                    <td>$200 (3 months)</td>
-                </tr>
-                <tr>
-                    <td>Support</td>
-                    <td><span class="check">24/7 ✓</span></td>
-                    <td><span class="check">24/7 ✓</span></td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </section>
 
-<!-- Features Section -->
-<section class="features" id="features">
+<!-- How to Order -->
+<section class="how-to-order" id="order">
     <div class="container">
-        <h2>Why Choose Phantom Reaper AI?</h2>
-        <p class="section-subtitle">Industry-leading technology and support</p>
+        <h2>How to order</h2>
+        <p>Simple, confirmed payment.</p>
+        <p style="color: var(--text-muted); font-size: 1rem;">Message us first with the bot you want. We will confirm the total and availability before you send payment.</p>
         
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Lightning Fast</h3>
-                <p>Millisecond-precision order execution with advanced algorithms designed for speed and accuracy.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Smart Risk Management</h3>
-                <p>Intelligent position sizing, drawdown protection, and daily loss limits keep your capital safe.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3>100% Automated</h3>
-                <p>Set and forget. Trade 24/7 without emotions or manual intervention required.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Proven Performance</h3>
-                <p>Backtested on real market conditions with consistent results across multiple timeframes.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>Expert Support</h3>
-                <p>WhatsApp support available 24/7. Direct access to the development team for assistance.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <h3>Fully Customizable</h3>
-                <p>Adjust parameters to match your trading style, risk tolerance, and market conditions.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- How It Works -->
-<section class="how-it-works">
-    <div class="container">
-        <h2>Getting Started in 3 Easy Steps</h2>
-        <div class="steps">
-            <div class="step">
+        <div class="order-steps">
+            <div class="step-card">
                 <div class="step-number">1</div>
-                <h3>Contact Us</h3>
-                <p>Message us on WhatsApp or email to discuss your needs</p>
+                <h3>Message us</h3>
+                <p>Tell us which system you're interested in</p>
             </div>
-            <div class="step">
+            <div class="step-card">
                 <div class="step-number">2</div>
-                <h3>Purchase & Setup</h3>
-                <p>Complete payment and receive the bot with installation guide</p>
+                <h3>We confirm</h3>
+                <p>Price and availability details</p>
             </div>
-            <div class="step">
+            <div class="step-card">
                 <div class="step-number">3</div>
-                <h3>Start Trading</h3>
-                <p>Install on MT4/MT5 and start automated trading immediately</p>
+                <h3>Complete payment</h3>
+                <p>Secure payment process</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Get access</h3>
+                <p>Instant bot delivery + support</p>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Pricing Section -->
-<section class="pricing" id="pricing">
-    <div class="container">
-        <h2>Simple, Affordable Pricing</h2>
-        <p class="section-subtitle">Professional trading bots at accessible prices</p>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>Single Bot</h3>
-                <div class="price">$200<span>/3 months</span></div>
-                <p class="price-desc">One trading bot license</p>
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> Full access to 1 bot</li>
-                    <li><i class="fas fa-check"></i> 3 months validity</li>
-                    <li><i class="fas fa-check"></i> WhatsApp support</li>
-                    <li><i class="fas fa-check"></i> Setup assistance</li>
-                    <li><i class="fas fa-times"></i> Renewal discount</li>
-                </ul>
-                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20a%20single%20bot%20license%20for%20%24200" class="btn btn-primary">Get Started</a>
-            </div>
-
-            <div class="pricing-card featured">
-                <div class="badge">BEST VALUE</div>
-                <h3>Both Bots Bundle</h3>
-                <div class="price">$350<span>/3 months</span></div>
-                <p class="price-desc">Save $50 - Get both bots</p>
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> Both bots access</li>
-                    <li><i class="fas fa-check"></i> 3 months validity</li>
-                    <li><i class="fas fa-check"></i> Priority support</li>
-                    <li><i class="fas fa-check"></i> Advanced setup</li>
-                    <li><i class="fas fa-check"></i> Renewal discount 20%</li>
-                </ul>
-                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20buy%20the%20Both%20Bots%20Bundle%20for%20%24350" class="btn btn-primary">Best Deal</a>
-            </div>
-
-            <div class="pricing-card">
-                <h3>Renewal (3 Mo)</h3>
-                <div class="price">$160<span>/3 months</span></div>
-                <p class="price-desc">Renew existing license</p>
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> 20% discount</li>
-                    <li><i class="fas fa-check"></i> Extend 3 months</li>
-                    <li><i class="fas fa-check"></i> No reinstall needed</li>
-                    <li><i class="fas fa-check"></i> Support included</li>
-                    <li><i class="fas fa-check"></i> Updates included</li>
-                </ul>
-                <a href="https://wa.me/256748758798?text=Hi%20I%20want%20to%20renew%20my%20license%20for%20%24160" class="btn btn-primary">Renew</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ Section -->
-<section class="faq" id="faq">
-    <div class="container">
-        <h2>Frequently Asked Questions</h2>
-        
-        <div class="faq-content">
-            <div class="faq-item">
-                <h3>What brokers are compatible?</h3>
-                <p>Our bots work with any MT4/MT5 broker. Popular choices: FXOpen, Exness, IC Markets, HotForex, and many others. We provide setup help for your broker.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What's the minimum starting capital?</h3>
-                <p>We recommend starting with at least $200-$500 minimum. Most brokers allow this. The bot will auto-size positions based on your account and risk settings.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I run both bots simultaneously?</h3>
-                <p>Yes! You can run both on the same account on different currency pairs or timeframes, or deploy them to separate accounts.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What if I have technical issues?</h3>
-                <p>Contact us on WhatsApp! Our team provides 24/7 support including installation help, troubleshooting, and parameter optimization.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Are past results guaranteed?</h3>
-                <p>No. Past performance doesn't guarantee future results. All trading involves risk. Our bots are designed to manage risk, but profits are never guaranteed.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What happens after 3 months?</h3>
-                <p>Your license expires. You can renew for $160 (20% discount) to continue trading. Or purchase a new license. Data and settings are preserved.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I get a refund?</h3>
-                <p>We offer a 7-day trial period. If you're not satisfied within 7 days, we provide a full refund. After 7 days, no refunds due to license delivery.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Do I need coding knowledge?</h3>
-                <p>No! The bots are ready to use. We provide step-by-step installation guides and our support team can assist with setup.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="cta">
-    <div class="container">
-        <h2>Ready to Transform Your Trading?</h2>
-        <p>Join hundreds of traders using Phantom Reaper AI bots. Start automated trading today.</p>
-        <a href="https://wa.me/256748758798" class="btn btn-primary btn-large">
-            <i class="fab fa-whatsapp"></i> Contact Us on WhatsApp
+        <a href="https://wa.me/256748758798" class="btn btn-primary" style="margin-top: 50px; font-size: 1.1rem; padding: 16px 40px;">
+            <i class="fab fa-whatsapp"></i> Start on WhatsApp
         </a>
-        <p style="margin-top: 20px; color: var(--text-muted); font-size: 0.9rem;">
-            💬 WhatsApp: +256 748 758 798 | 24/7 Support Available
-        </p>
     </div>
 </section>
 
@@ -555,22 +807,14 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Phantom Reaper AI</h4>
-                <p>Professional automated trading bots for Forex and Commodities</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/disclaimer.html">Disclaimer</a></li>
-                    <li><a href="pages/privacy.html">Privacy Policy</a></li>
-                </ul>
+                <p>Professional automated trading systems. Trade like a pro with AI-powered bots.</p>
             </div>
             <div class="footer-section">
                 <h4>Support</h4>
                 <ul>
                     <li><a href="https://wa.me/256748758798"><i class="fab fa-whatsapp"></i> WhatsApp Support</a></li>
                     <li><a href="mailto:support@phantomreaperai.com">Email Support</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#order">How to Order</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -580,8 +824,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Phantom Reaper AI. All Rights Reserved.</p>
-            <p class="disclaimer">⚠️ Trading involves substantial risk of loss. Past performance does not guarantee future results.</p>
+            <p>&copy; 2026 Phantom Reaper AI / Moreau Trading. All Rights Reserved.</p>
+            <p class="footer-disclaimer">⚠️ Trading involves substantial risk of loss. Past performance does not guarantee future results.</p>
         </div>
     </div>
 </footer>
